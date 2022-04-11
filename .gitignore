@@ -14,6 +14,7 @@
 /.idea/vcs.xml
 /.idea/shelf/
 /.idea/deploymentTargetDropDown.xml
+/apikey/ApiKey
 .DS_Store
 /build
 /app/build

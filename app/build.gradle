@@ -14,13 +14,16 @@ android {
         targetSdk 32
         versionCode 1
         versionName "1.0"
+
+        buildConfigField "String", "BASE_URL", '"https://api.giphy.com/v1/"'
+        buildConfigField "String", "API_KEY", getApiKey()
     }
 
     buildTypes {
 
         debug {
-            minifyEnabled true
-            shrinkResources true
+            minifyEnabled false
+            shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
 
@@ -90,4 +93,8 @@ dependencies {
 
     // Coil
     implementation "io.coil-kt:coil-compose:$coil_version"
+}
+
+static String getApiKey() {
+    return new File("./apikey/ApiKey").getText('UTF-8')
 }

@@ -21,7 +21,9 @@ class Navigator {
     }
 
     fun replace(action: AppState.() -> AppState) {
-        back()
+        if (backStack.size > 1) {
+            backStack.pop()
+        }
         open(action)
     }
 

@@ -4,8 +4,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.material.MaterialTheme
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.dehalex.giphy.presentation.common.usages.NotImplemented
 import com.dehalex.giphy.presentation.common.usages.NotSupported
 import com.dehalex.giphy.presentation.screens.error.ErrorComponent
@@ -16,11 +16,12 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class RootActivity : ComponentActivity() {
 
+    private val rootViewModel: RootViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContent {
-            val rootViewModel: RootViewModel = viewModel()
 
             BackHandler { rootViewModel.onBackClicked(::finish) }
 
@@ -41,9 +42,9 @@ class RootActivity : ComponentActivity() {
                     else -> NotSupported()
                 }
 
-                rootViewModel.appState.throwable?.let { throwable ->
+                if (rootViewModel.appState.throwable != null) {
 
-                    ErrorComponent(throwable)
+                    ErrorComponent()
                 }
             }
         }
