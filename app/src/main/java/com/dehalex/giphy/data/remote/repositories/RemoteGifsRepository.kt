@@ -10,4 +10,9 @@ class RemoteGifsRepository(
     suspend fun getTrendingGifs(offset: Int, limit: Int): List<GifNetwork> {
         return giphyApiCalls.getTrendingGifs(offset = offset, limit = limit).data ?: emptyList()
     }
+
+    suspend fun getGifsBySearch(query: String, offset: Int, limit: Int): List<GifNetwork> {
+        return giphyApiCalls.getGifsBySearch(query = query, offset = offset, limit = limit).data
+            ?: emptyList()
+    }
 }
