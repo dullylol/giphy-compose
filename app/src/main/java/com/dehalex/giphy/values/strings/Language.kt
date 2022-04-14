@@ -1,3 +1,6 @@
 package com.dehalex.giphy.values.strings
 
-interface Language
+interface Language {
+
+    val appName: String
+}

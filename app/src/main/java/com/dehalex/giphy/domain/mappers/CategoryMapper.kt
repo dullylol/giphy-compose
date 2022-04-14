@@ -1,10 +1,11 @@
 package com.dehalex.giphy.domain.mappers
 
-import com.dehalex.giphy.data.remote.entities.categories.CategoryNetwork
+import com.dehalex.giphy.data.entities.network.categories.CategoryNetwork
 import com.dehalex.giphy.domain.entities.categories.Category
 import com.dehalex.giphy.domain.entities.categories.Subcategory
+import javax.inject.Inject
 
-class CategoryMapper {
+class CategoryMapper @Inject constructor() {
 
     fun toDomain(categoryNetwork: CategoryNetwork): Category {
         return Category(

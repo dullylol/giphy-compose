@@ -1,5 +1,6 @@
 package com.dehalex.giphy.di.domain
 
+import com.dehalex.giphy.domain.mappers.CategoryMapper
 import com.dehalex.giphy.domain.mappers.GifMapper
 import dagger.Module
 import dagger.Provides
@@ -14,4 +15,8 @@ class MappersModule {
     @Provides
     @ViewModelScoped
     fun provideGifMapper() = GifMapper()
+
+    @Provides
+    @ViewModelScoped
+    fun provideCategoryMapper() = CategoryMapper()
 }

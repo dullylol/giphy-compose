@@ -8,6 +8,8 @@ plugins {
 android {
     compileSdk 32
 
+    namespace 'com.dehalex.giphy'
+
     defaultConfig {
         applicationId "com.dehalex.giphy"
         minSdk 26
@@ -93,6 +95,7 @@ dependencies {
 
     // Coil
     implementation "io.coil-kt:coil-compose:$coil_version"
+    implementation "io.coil-kt:coil-gif:$coil_version"
 }
 
 static String getApiKey() {
